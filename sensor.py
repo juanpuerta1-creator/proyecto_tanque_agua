@@ -4,8 +4,7 @@ from time import sleep
 Altura_Tanque = 100
 Nivel_Min = 20 #Nivel minimo del agua
 Nivel_Max = 90 #Nivel maximo del agua
-Nivel_Critico = 10 #Nivel critico del agua
-Nivel_Desbordamiento = 95 #Nivel de posible desbordamiento del agua
+
 
 trig = Pin(19, Pin.OUT) #pin de salida
 echo = Pin(18, Pin.IN) #pin de entrada
