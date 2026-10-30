@@ -6,6 +6,7 @@ import buzzer
 import actuadores
 
 bomba_encendida = "No activada" #la bomba inicia apagada
+ciclos_limpieza = 0 #no hay ningun ciclo completado
 
 while True:
     nivel_agua = sensor.medir_nivel()
@@ -17,7 +18,9 @@ while True:
     elif nivel_agua < sensor.Nivel_Min:
         bomba_encendida = "Activada" #la bomba se enciende si el nivel del agua esta por debajo del limite
     elif nivel_agua > sensor.Nivel_Max:
-        bomba_encendida = "No activada" #la bomba se apaga si sobrepasa el limite del tanque
+        if bomba_encendida == "Activada":
+            ciclos_limpieza = ciclos_limpieza + 1
+            bomba_encendida = "No activada"
 
     if bomba_encendida == "Activada":
         actuadores.encender_bomba()
@@ -26,3 +29,7 @@ while True:
 
     print(f"Nivel actual: {nivel_agua}% ----- Estado de la bomba: {bomba_encendida}")
 
+    if ciclos_limpieza == estado.ciclos_maximo:
+        print("Se han alcanzado los ciclos maximos. Se recomienda realizar una limpieza.")
+
+    estado.mostrar_estado(nivel_agua)
