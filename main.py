@@ -12,7 +12,7 @@ while True:
     nivel_agua = sensor.medir_nivel()
 
     if nivel_agua < 0:
-        actuadores.cerrar_bomba()
+        actuadores.apagar_bomba()
         actuadores.cerrar_valvula()
         print("Error de lectura. El sistema ha sido detenido por precaucion")
     elif nivel_agua < sensor.Nivel_Min:
@@ -25,7 +25,7 @@ while True:
     if bomba_encendida == "Activada":
         actuadores.encender_bomba()
     elif bomba_encendida == "No activada":
-        actuadores.cerrar_bomba()
+        actuadores.apagar_bomba()
 
     print(f"Nivel actual: {nivel_agua}% ----- Estado de la bomba: {bomba_encendida}")
 
