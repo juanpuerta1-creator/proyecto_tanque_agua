@@ -8,7 +8,7 @@ relay.value(0)
 def encender_bomba():
   relay.value(1)
 
-def cerrar_bomba():
+def apagar_bomba():
   relay.value(0)
 
 #Valvula
