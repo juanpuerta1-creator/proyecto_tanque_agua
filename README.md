@@ -27,3 +27,12 @@ https://wokwi.com/projects/478704980156509185
 2. control automático de la bomba y la válvula.
 3. Indicadores con Leds sobre el estado del tanque y buzzer como alarma de advertencia
 4. Recomendacion de limpieza del tanque por determinados ciclos.
+
+## Módulos
+
+- **main.py** --> programa principal
+- **sensor.py** --> función para medir el nivel del agua
+- **leds.py** --> instrucciones para los leds
+- **estado.py** --> mostrar estado del tanque de manera visual con los leds
+- **buzzer.py** --> configuracion del buzzer
+- **actuadores.py** --> funcion para activar la bomba y la valvula.
