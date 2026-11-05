@@ -1,8 +1,6 @@
 from time import sleep
 import sensor
-import leds
 import estado
-import buzzer
 import actuadores
 
 bomba_encendida = "No activada" #la bomba inicia apagada
