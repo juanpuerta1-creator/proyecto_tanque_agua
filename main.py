@@ -25,6 +25,11 @@ while True:
     elif bomba_encendida == "No activada":
         actuadores.apagar_bomba()
 
+    if temperatura_agua is not None:
+        print(f"Temperatura del agua: {temperatura_agua:.1f} °C")
+    else:
+        print("No se detecta el sensor de temperatura.")
+
     print(f"Nivel actual: {nivel_agua}% ----- Estado de la bomba: {bomba_encendida}")
 
     if ciclos_limpieza == estado.ciclos_maximo:
