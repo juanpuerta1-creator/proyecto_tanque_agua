@@ -1,5 +1,4 @@
 import flet as ft
-from flet.controls import border_radius
 
 from colores import Colores
 
