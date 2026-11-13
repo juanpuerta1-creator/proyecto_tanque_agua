@@ -15,6 +15,14 @@ def main(page:ft.Page):
         bgcolor = Colores["Barra_lateral"],
         padding = 10,
         border_radius = 15,
+        content = ft.Column(
+            controls = [
+                crear_items(ft.Icons.DASHBOARD, "Vista general"),
+                crear_items(ft.Icons.STORAGE, "Tanques"),
+                crear_items(ft.Icons.SHOW_CHART, "Historial"),
+                crear_items(ft.Icons.NOTIFICATIONS, "Alertas")
+            ]
+        )
     )
 
     area_principal = ft.Container(
