@@ -22,4 +22,3 @@ def crear_items(icono, texto):
             ]
         )
     )
-
