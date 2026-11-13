@@ -25,7 +25,7 @@ def main(page:ft.Page):
                     color = Colores["Fondo"],
                     thickness = 2
                 ),
-                crear_items(ft.Icons.DASHBOARD, "Vista general"),
+                crear_items(ft.Icons.DASHBOARD, "Vista general", True),
                 crear_items(ft.Icons.STORAGE, "Tanques"),
                 crear_items(ft.Icons.SHOW_CHART, "Historial"),
                 crear_items(ft.Icons.NOTIFICATIONS, "Alertas")
