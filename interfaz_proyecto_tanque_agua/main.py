@@ -1,6 +1,6 @@
 import flet as ft
-
 from colores import Colores
+from barra_lateral import crear_items
 
 def main(page:ft.Page):
     page.title = "Acuarella - Monitor de tanque de agua"
@@ -14,7 +14,7 @@ def main(page:ft.Page):
         width = 240,
         bgcolor = Colores["Barra_lateral"],
         padding = 10,
-        border_radius = 15
+        border_radius = 15,
     )
 
     area_principal = ft.Container(
@@ -31,6 +31,11 @@ def main(page:ft.Page):
         ]
     )
 
-    page.add(estructura_principal)
+    items = crear_items(
+        ft.Icons.DASHBOARD,
+        "Vista general"
+    )
+
+    page.add(estructura_principal, items)
 
 ft.run(main)
