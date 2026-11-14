@@ -2,7 +2,7 @@ import flet as ft
 
 from colores import Colores
 
-def crear_items(icono, texto, activo = True):
+def crear_items(icono, texto, activo = False):
     if activo == True:
         color_fondo = Colores["Turquesa"]
     else:
