@@ -25,6 +25,12 @@ def main(page:ft.Page):
                     color = Colores["Fondo"],
                     thickness = 2
                 ),
+                ft.Text(
+                    "MENU PRINCIPAL",
+                    color = Colores["Texto_Secundario"],
+                    size = 12,
+                    weight = ft.FontWeight.BOLD
+                ),
                 crear_items(ft.Icons.DASHBOARD, "Vista general", True),
                 crear_items(ft.Icons.STORAGE, "Tanques"),
                 crear_items(ft.Icons.SHOW_CHART, "Historial"),
@@ -47,12 +53,5 @@ def main(page:ft.Page):
         ]
     )
     page.add(estructura_principal)
-
-    items = crear_items(
-        ft.Icons.DASHBOARD,
-        "Vista general"
-    )
-    page.add(items)
-
 
 ft.run(main)
