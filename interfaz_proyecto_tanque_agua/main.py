@@ -1,6 +1,6 @@
 import flet as ft
 from colores import Colores
-from barra_lateral import crear_items
+from barra_lateral import crear_items, cuenta_usuario
 from encabezado import crear_encabezado
 
 def main(page:ft.Page):
@@ -18,6 +18,7 @@ def main(page:ft.Page):
         bgcolor = Colores["Barra_lateral"],
         padding = 10,
         border_radius = 15,
+
         content = ft.Column(
             controls = [
                 encabezado,
@@ -28,7 +29,12 @@ def main(page:ft.Page):
                 crear_items(ft.Icons.DASHBOARD, "Vista general", True),
                 crear_items(ft.Icons.STORAGE, "Tanques"),
                 crear_items(ft.Icons.SHOW_CHART, "Historial"),
-                crear_items(ft.Icons.NOTIFICATIONS, "Alertas")
+                crear_items(ft.Icons.NOTIFICATIONS, "Alertas"),
+
+                ft.Container(
+                    expand = True
+                ),
+                cuenta_usuario("Juan Puerta", "Administrador Principal", "JP")
             ]
         )
     )
@@ -47,12 +53,5 @@ def main(page:ft.Page):
         ]
     )
     page.add(estructura_principal)
-
-    items = crear_items(
-        ft.Icons.DASHBOARD,
-        "Vista general"
-    )
-    page.add(items)
-
 
 ft.run(main)
