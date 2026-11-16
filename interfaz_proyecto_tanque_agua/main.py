@@ -1,7 +1,7 @@
 import flet as ft
 from colores import Colores
 from barra_lateral import crear_items, cuenta_usuario
-from encabezado import crear_encabezado
+from encabezado import crear_encabezado, encabezado_principal
 
 def main(page:ft.Page):
     page.title = "Acuarella - Monitor de tanque de agua"
@@ -12,6 +12,7 @@ def main(page:ft.Page):
     page.window.min_height = 400
 
     encabezado = crear_encabezado()
+    encabezado_2 = encabezado_principal()
 
     barra_lateral = ft.Container(
         width = 240,
@@ -41,7 +42,12 @@ def main(page:ft.Page):
 
     area_principal = ft.Container(
         expand = True,
-        padding = 10
+        padding = 10,
+        content = ft.Column(
+            controls = [
+                encabezado_2
+            ]
+        )
     )
 
     estructura_principal = ft.Row(
