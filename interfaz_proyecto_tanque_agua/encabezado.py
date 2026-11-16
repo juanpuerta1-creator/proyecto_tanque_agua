@@ -1,4 +1,6 @@
 import flet as ft
+from flet.controls import border
+
 from colores import Colores
 
 def crear_encabezado():
@@ -11,3 +13,21 @@ def crear_encabezado():
         alignment = ft.MainAxisAlignment.CENTER
     )
     return encabezado
+
+def encabezado_principal():
+    encabezado_2 = ft.Column(
+        controls = [
+            ft.Text(
+                "Monitoreo del tanque",
+                size = 25,
+                color =  Colores["Texto"],
+            ),
+            ft.Text(
+                "Tanque principal",
+                size = 15,
+                color = Colores["Texto_Secundario"]
+            )
+        ],
+        spacing = 5
+    )
+    return encabezado_2
