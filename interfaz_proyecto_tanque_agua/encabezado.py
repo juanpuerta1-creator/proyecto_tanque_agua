@@ -11,3 +11,20 @@ def crear_encabezado():
         alignment = ft.MainAxisAlignment.CENTER
     )
     return encabezado
+
+def encabezado_principal():
+    encabezado_2 = ft.Column(
+        controls = [
+            ft.Text(
+                "Monitoreo del tanque",
+                size = 25,
+                color = Colores["Texto"]
+            ),
+            ft.Text(
+                "Tanque principal",
+                size = 15,
+                color = Colores["Texto_Secundario"]
+            )
+        ]
+    )
+    return encabezado_2
