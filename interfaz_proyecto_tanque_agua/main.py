@@ -2,6 +2,7 @@ import flet as ft
 from colores import Colores
 from barra_lateral import crear_items, cuenta_usuario
 from encabezado import crear_encabezado, encabezado_principal
+from tarjetas import crear_tarjeta
 
 def main(page:ft.Page):
     page.title = "Acuarella - Monitor de tanque de agua"
@@ -40,12 +41,36 @@ def main(page:ft.Page):
         )
     )
 
+    espacio_tarjetas = ft.Row(
+        controls = [
+            crear_tarjeta(
+                "Nivel del agua",
+                "72%",
+                ft.Icons.WATER_DROP,
+                Colores["Turquesa"]
+            ),
+            crear_tarjeta(
+                "Volumen del tanque",
+                "14.000 L",
+                ft.Icons.WATER,
+                Colores["Turquesa"]
+            ),
+            crear_tarjeta(
+                "Estado de la bomba",
+                "ACTIVA",
+                ft.Icons.WIFI,
+                color = "verde"
+            ),
+        ]
+    )
+
     area_principal = ft.Container(
         expand = True,
         padding = 10,
         content = ft.Column(
             controls = [
-                encabezado_2
+                encabezado_2,
+                espacio_tarjetas
             ]
         )
     )
