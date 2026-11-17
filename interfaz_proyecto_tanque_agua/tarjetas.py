@@ -1,5 +1,5 @@
 import flet as ft
-from PIL.ImageColor import colormap
+from flet.controls import border_radius
 
 from colores import Colores
 
@@ -21,7 +21,6 @@ def crear_tarjeta(titulo, cantidad, icono, color):
                         ft.Icon(
                             icono,
                             color = color,
-                            size = 12
                         )
                     ],
                     alignment = ft.MainAxisAlignment.SPACE_BETWEEN

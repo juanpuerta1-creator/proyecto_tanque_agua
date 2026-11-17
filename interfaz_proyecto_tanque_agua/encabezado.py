@@ -1,4 +1,6 @@
 import flet as ft
+from flet.controls import border
+
 from colores import Colores
 
 def crear_encabezado():
@@ -18,13 +20,14 @@ def encabezado_principal():
             ft.Text(
                 "Monitoreo del tanque",
                 size = 25,
-                color = Colores["Texto"]
+                color =  Colores["Texto"],
             ),
             ft.Text(
                 "Tanque principal",
                 size = 15,
                 color = Colores["Texto_Secundario"]
             )
-        ]
+        ],
+        spacing = 5
     )
     return encabezado_2
