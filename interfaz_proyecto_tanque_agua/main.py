@@ -3,6 +3,7 @@ from colores import Colores
 from barra_lateral import crear_items, cuenta_usuario
 from encabezado import crear_encabezado, encabezado_principal
 from tarjetas import crear_tarjeta
+from grafica import crear_grafica
 
 def main(page:ft.Page):
     page.title = "Acuarella - Monitor de tanque de agua"
@@ -76,7 +77,8 @@ def main(page:ft.Page):
         content = ft.Column(
             controls = [
                 encabezado_2,
-                espacio_tarjetas
+                espacio_tarjetas,
+                crear_grafica()
             ]
         )
     )
