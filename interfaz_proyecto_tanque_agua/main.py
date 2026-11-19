@@ -70,8 +70,7 @@ def main(page:ft.Page):
                 ft.Icons.THERMOSTAT,
                 Colores["Turquesa"]
             )
-        ],
-        alignment=ft.MainAxisAlignment.CENTER
+        ]
     )
 
     area_principal = ft.Container(
