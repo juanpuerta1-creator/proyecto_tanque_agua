@@ -4,6 +4,11 @@ from barra_lateral import crear_items, cuenta_usuario
 from encabezado import crear_encabezado, encabezado_principal
 from tarjetas import crear_tarjeta
 from grafica import crear_grafica
+from alertas import comprobar_alertas, recomendacion_limpieza
+
+nivel = 56
+ciclos = 100
+ciclos_maximos = 100
 
 def main(page:ft.Page):
     page.title = "Acuarella - Monitor de tanque de agua"
@@ -80,7 +85,9 @@ def main(page:ft.Page):
             controls = [
                 encabezado_2,
                 espacio_tarjetas,
-                crear_grafica()
+                crear_grafica(),
+                comprobar_alertas(nivel),
+                recomendacion_limpieza(ciclos, ciclos_maximos) if ciclos >= ciclos_maximos else ft.Container()
             ]
         )
     )
