@@ -43,10 +43,11 @@ def cuenta_usuario(nombre, rol, iniciales_nombre):
                     bgcolor = Colores["Fondo"],
                     alignment = ft.Alignment.CENTER,
 
-                    content = ft.Text(
-                        iniciales_nombre,
-                        color = Colores["Texto"],
-                        weight = ft.FontWeight.BOLD,
+                    content = ft.Image(
+                        src = "assets/Perfil.png",
+                        width = 40,
+                        height = 40,
+                        fit = ft.BoxFit.CONTAIN
                     )
                 ),
                 ft.Column(
