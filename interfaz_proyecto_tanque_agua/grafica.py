@@ -5,9 +5,13 @@ from colores import Colores
 datos = [
     {"hora": "8:40", "nivel": 43.0},
     {"hora": "9:00", "nivel": 67.0},
+    {"hora": "2:00", "nivel": 76.0},
     {"hora": "12:30", "nivel": 90.0},
-    {"hora": "4:45", "nivel": 90.0},
+    {"hora": "4:45", "nivel": 56.0},
 ]
+
+Nivel_Min = 20
+Nivel_Max = 90
 
 def crear_grafica():
     puntos = [
@@ -23,6 +27,26 @@ def crear_grafica():
         point = True
     )
 
+    nivel_minimo = fch.LineChartData(
+        points = [
+            fch.LineChartDataPoint(0, Nivel_Min),
+            fch.LineChartDataPoint(len(datos) - 1, Nivel_Min)
+        ],
+        color = Colores["Nivel_Min"],
+        curved = False,
+        dash_pattern = [5, 5]
+    )
+
+    nivel_maximo = fch.LineChartData(
+        points = [
+            fch.LineChartDataPoint(0, Nivel_Max),
+            fch.LineChartDataPoint(len(datos) - 1, Nivel_Max)
+        ],
+        color = Colores["Nivel_Max"],
+        curved = False,
+        dash_pattern = [5, 5]
+    )
+
     eje_vertical = fch.ChartAxis(
         labels = [
             fch.ChartAxisLabel(
@@ -30,24 +54,28 @@ def crear_grafica():
                 label = ft.Text("0%", color=Colores["Texto_Secundario"])
             ),
             fch.ChartAxisLabel(
-                value = 25,
-                label = ft.Text("25%", color=Colores["Texto_Secundario"])
+                value = 20,
+                label = ft.Text("20%", color=Colores["Texto_Secundario"])
             ),
             fch.ChartAxisLabel(
-                value = 50,
-                label = ft.Text("50%", color=Colores["Texto_Secundario"])
+                value = 40,
+                label = ft.Text("40%", color=Colores["Texto_Secundario"])
             ),
             fch.ChartAxisLabel(
-                value = 75,
-                label = ft.Text("75%", color=Colores["Texto_Secundario"])
+                value = 60,
+                label = ft.Text("60%", color=Colores["Texto_Secundario"])
+            ),
+            fch.ChartAxisLabel(
+                value = 80,
+                label = ft.Text("80%", color=Colores["Texto_Secundario"])
             ),
             fch.ChartAxisLabel(
                 value = 100,
                 label = ft.Text("100%", color=Colores["Texto_Secundario"])
-            ),
+            )
         ],
-        label_size = 55,
-        label_spacing = 25
+        label_size = 50,
+        label_spacing = 5
     )
 
     eje_horizontal = fch.ChartAxis(
@@ -65,7 +93,7 @@ def crear_grafica():
     )
 
     grafica = fch.LineChart(
-        data_series = [linea],
+        data_series = [linea, nivel_minimo, nivel_maximo],
         min_x =  0,
         max_x = len(datos) - 1,
         min_y = 0,
@@ -74,7 +102,7 @@ def crear_grafica():
         bottom_axis = eje_horizontal,
         expand = True,
         horizontal_grid_lines = fch.ChartGridLines(
-            interval = 15,
+            interval = 10,
             color = Colores["Fondo"],
             width = 2
         ),
