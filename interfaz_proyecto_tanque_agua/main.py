@@ -17,7 +17,7 @@ def main(page:ft.Page):
     encabezado_2 = encabezado_principal()
 
     barra_lateral = ft.Container(
-        width = 240,
+        width = 220,
         bgcolor = Colores["Barra_lateral"],
         padding = 10,
         border_radius = 15,
@@ -25,10 +25,6 @@ def main(page:ft.Page):
         content = ft.Column(
             controls = [
                 encabezado,
-                ft.Divider(
-                    color = Colores["Fondo"],
-                    thickness = 2
-                ),
                 ft.Text(
                     "MENU PRINCIPAL",
                     color = Colores["Texto_Secundario"],
@@ -38,7 +34,7 @@ def main(page:ft.Page):
                 crear_items(ft.Icons.DASHBOARD, "Vista general", True),
                 crear_items(ft.Icons.STORAGE, "Tanques"),
                 crear_items(ft.Icons.SHOW_CHART, "Historial"),
-                crear_items(ft.Icons.NOTIFICATIONS, "Alertas"),
+                crear_items(ft.Icons.NOTIFICATIONS_NONE, "Alertas"),
 
                 ft.Container(
                     expand = True
@@ -52,7 +48,7 @@ def main(page:ft.Page):
         controls = [
             crear_tarjeta(
                 "Nivel del agua",
-                "72%",
+                "70%",
                 ft.Icons.WATER_DROP,
                 Colores["Turquesa"]
             ),
@@ -66,9 +62,10 @@ def main(page:ft.Page):
                 "Estado de la bomba",
                 "ACTIVA",
                 ft.Icons.WIFI,
-                color = "verde"
+                color = Colores["Turquesa"]
             ),
-        ]
+        ],
+        alignment=ft.MainAxisAlignment.CENTER
     )
 
     area_principal = ft.Container(
