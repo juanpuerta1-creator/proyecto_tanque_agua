@@ -6,10 +6,15 @@ from colores import Colores
 def crear_encabezado():
     encabezado = ft.Row(
         controls = [
-            ft.Icon(ft.Icons.WATER_DROP, color = Colores["Turquesa"], size = 30),
+            ft.Image(
+              src = "assets/Logo.png",
+                width = 80,
+                height = 80,
+                fit = ft.BoxFit.CONTAIN
+            ),
             ft.Text("Acuarella", size = 20, weight = ft.FontWeight.BOLD, color = Colores["Texto"])
         ],
-        spacing = 10,
+        spacing = 5,
         alignment = ft.MainAxisAlignment.CENTER
     )
     return encabezado
