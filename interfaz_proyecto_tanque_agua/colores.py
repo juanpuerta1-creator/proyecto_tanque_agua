@@ -7,5 +7,7 @@ Colores = {
     "Turquesa": "#20C5CE",
     "Texto": "#E6EDF3",
     "Texto_Secundario": "#A5B4C2",
-    "Blanco": "#FFFFF"
+    "Blanco": "#FFFFF",
+    "Nivel_Min": "#FF5B3B",
+    "Nivel_Max": "#FACB25"
 }
