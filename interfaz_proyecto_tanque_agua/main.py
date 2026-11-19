@@ -64,6 +64,12 @@ def main(page:ft.Page):
                 ft.Icons.WIFI,
                 color = Colores["Turquesa"]
             ),
+            crear_tarjeta(
+                "Temperatura",
+                "24 ºC",
+                ft.Icons.THERMOSTAT,
+                Colores["Turquesa"]
+            )
         ],
         alignment=ft.MainAxisAlignment.CENTER
     )
