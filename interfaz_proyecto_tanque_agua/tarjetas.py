@@ -8,6 +8,7 @@ def crear_tarjeta(titulo, cantidad, icono, color):
         padding = 15,
         border_radius = 10,
         bgcolor = Colores["Barra_lateral"],
+        expand = True,
 
         content = ft.Column(
             controls = [
