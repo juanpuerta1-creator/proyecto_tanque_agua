@@ -74,7 +74,7 @@ def crear_grafica():
                 label = ft.Text("100%", color=Colores["Texto_Secundario"])
             )
         ],
-        label_size = 50,
+        label_size = 45,
         label_spacing = 5
     )
 
@@ -84,7 +84,7 @@ def crear_grafica():
                 value = i,
                 label = ft.Text(
                     dato["hora"],
-                    size = 10,
+                    size = 12,
                     color = Colores["Texto_Secundario"]
                 )
             )
@@ -118,9 +118,20 @@ def crear_grafica():
     )
 
     return ft.Container(
-        height = 250,
+        height = 300,
         padding = 15,
         bgcolor = Colores["Barra_lateral"],
         border_radius = 15,
-        content = grafica
+        content = ft.Column(
+            controls = [
+                ft.Text(
+                    "Evolucion del nivel de agua",
+                    size = 15,
+                    weight = ft.FontWeight.BOLD,
+                    color = Colores["Texto"]
+                ),
+                grafica
+            ],
+            spacing = 30
+        )
     )
