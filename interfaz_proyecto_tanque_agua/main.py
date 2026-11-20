@@ -86,13 +86,6 @@ def main(page: ft.Page):
                 "ACTIVA",
                 ft.Icons.WIFI,
                 Colores["Turquesa"]
-            ),
-
-            crear_tarjeta(
-                "Temperatura",
-                f"{temperatura_agua} °C",
-                ft.Icons.THERMOSTAT,
-                Colores["Turquesa"]
             )
         ],
         spacing=10
