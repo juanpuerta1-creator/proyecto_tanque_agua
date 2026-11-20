@@ -1,6 +1,4 @@
-
 import flet as ft
-
 from colores import Colores
 from barra_lateral import crear_items, cuenta_usuario
 from encabezado import crear_encabezado, encabezado_principal
