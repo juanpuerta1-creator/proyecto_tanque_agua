@@ -91,16 +91,16 @@ def main(page: ft.Page):
 
     # TANQUE Y GRAFICA
     espacio_tanque_grafica = ft.Row(
-        controls=[
+        controls = [
             crear_tanque(nivel),
 
             ft.Container(
-                content=crear_grafica(),
-                expand=True
+                content = crear_grafica(),
+                expand = True
             )
         ],
-        spacing=15,
-        vertical_alignment=ft.CrossAxisAlignment.START
+        spacing = 15,
+        vertical_alignment = ft.CrossAxisAlignment.START
     )
 
     # PANEL DE TEMPERATURA
@@ -110,11 +110,11 @@ def main(page: ft.Page):
 
     # AREA PRINCIPAL
     area_principal = ft.Container(
-        expand=True,
-        padding=10,
+        expand = True,
+        padding = 10,
 
-        content=ft.Column(
-            controls=[
+        content = ft.Column(
+            controls = [
                 encabezado_2,
 
                 espacio_tarjetas,
@@ -129,17 +129,17 @@ def main(page: ft.Page):
                 if ciclos >= ciclos_maximos
                 else ft.Container()
             ],
-            spacing=15,
-            scroll=ft.ScrollMode.AUTO
+            spacing = 15,
+            scroll = ft.ScrollMode.AUTO
         )
     )
 
     # ESTRUCTURA PRINCIPAL
     estructura_principal = ft.Row(
-        expand=True,
-        spacing=5,
+        expand = True,
+        spacing = 5,
 
-        controls=[
+        controls = [
             barra_lateral,
             area_principal
         ]
