@@ -69,7 +69,7 @@ def main(page: ft.Page):
         controls=[
             crear_tarjeta(
                 "Nivel del agua",
-                "56%",
+                "70%",
                 ft.Icons.WATER_DROP,
                 Colores["Turquesa"]
             ),
@@ -87,6 +87,13 @@ def main(page: ft.Page):
                 ft.Icons.WIFI,
                 Colores["Turquesa"]
             ),
+
+            crear_tarjeta(
+                "Temperatura",
+                f"{temperatura_agua} °C",
+                ft.Icons.THERMOSTAT,
+                Colores["Turquesa"]
+            )
         ],
         spacing=10
     )
@@ -151,3 +158,4 @@ def main(page: ft.Page):
 
 
 ft.run(main)
+
