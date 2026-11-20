@@ -8,11 +8,13 @@ from tarjetas import crear_tarjeta
 from grafica import crear_grafica
 from alertas import comprobar_alertas, recomendacion_limpieza
 from tanque import crear_tanque
+from panel_temperatura import crear_panel_temperatura
 
 
 nivel = 56
 ciclos = 100
 ciclos_maximos = 100
+temperatura_agua = 24.0
 
 
 def main(page: ft.Page):
@@ -24,6 +26,7 @@ def main(page: ft.Page):
     page.window.min_width = 600
     page.window.min_height = 400
 
+    # ENCABEZADOS
     encabezado = crear_encabezado()
     encabezado_2 = encabezado_principal()
 
@@ -87,11 +90,12 @@ def main(page: ft.Page):
 
             crear_tarjeta(
                 "Temperatura",
-                "24 ºC",
+                f"{temperatura_agua} °C",
                 ft.Icons.THERMOSTAT,
                 Colores["Turquesa"]
             )
-        ]
+        ],
+        spacing=10
     )
 
     # TANQUE Y GRAFICA
@@ -108,6 +112,11 @@ def main(page: ft.Page):
         vertical_alignment=ft.CrossAxisAlignment.START
     )
 
+    # PANEL DE TEMPERATURA
+    panel_temperatura = crear_panel_temperatura(
+        temperatura_agua
+    )
+
     # AREA PRINCIPAL
     area_principal = ft.Container(
         expand=True,
@@ -121,12 +130,16 @@ def main(page: ft.Page):
 
                 espacio_tanque_grafica,
 
+                panel_temperatura,
+
                 comprobar_alertas(nivel),
 
                 recomendacion_limpieza(ciclos, ciclos_maximos)
                 if ciclos >= ciclos_maximos
                 else ft.Container()
-            ]
+            ],
+            spacing=15,
+            scroll=ft.ScrollMode.AUTO
         )
     )
 
@@ -145,3 +158,4 @@ def main(page: ft.Page):
 
 
 ft.run(main)
+
