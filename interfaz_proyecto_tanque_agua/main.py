@@ -7,6 +7,7 @@ from grafica import crear_grafica
 from alertas import comprobar_alertas, recomendacion_limpieza
 from tanque import crear_tanque
 from panel_temperatura import crear_panel_temperatura
+import random
 
 
 # VARIABLES DEL SISTEMA
@@ -37,6 +38,14 @@ def main(page: ft.Page):
     )
 
     items_menu = {}
+
+    def simular_datos(e):
+        global nivel
+
+        nivel = random.randint(10, 100)
+        contenido_principal.content = vista_general()
+
+        page.update()
 
     # VISTA GENERAL
     def vista_general():
@@ -88,6 +97,12 @@ def main(page: ft.Page):
             controls = [
                 encabezado_2,
                 espacio_tarjetas,
+
+                ft.Button(
+                    "Actualizar datos",
+                    on_click = simular_datos
+                ),
+
                 espacio_tanque_grafica,
                 crear_panel_temperatura(temperatura_agua),
                 comprobar_alertas(nivel),
