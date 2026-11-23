@@ -33,7 +33,7 @@ def crear_items(icono, texto, activo=False, on_click = None):
     )
 
 
-def cuenta_usuario(nombre, rol, iniciales_nombre):
+def cuenta_usuario(nombre, rol):
     return ft.Container(
         padding = 10,
         border_radius = 15,
