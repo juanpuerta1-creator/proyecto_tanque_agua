@@ -37,12 +37,12 @@ def main(page: ft.Page):
         padding=10
     )
 
-    items_menu = {}
-
     def simular_datos(e):
-        global nivel
+        global nivel, temperatura_agua
 
         nivel = random.randint(10, 100)
+        temperatura_agua = random.randint(18, 45)
+
         contenido_principal.content = vista_general()
 
         page.update()
@@ -72,6 +72,14 @@ def main(page: ft.Page):
                     "ACTIVA",
                     ft.Icons.WIFI,
                     Colores["Turquesa"]
+                ),
+
+                ft.Button(
+                    "Actualizar datos",
+                    color = Colores["Turquesa"],
+                    bgcolor = Colores["Barra_lateral"],
+                    icon = ft.Icons.REFRESH,
+                    on_click = simular_datos
                 )
             ],
             spacing=10
@@ -97,12 +105,6 @@ def main(page: ft.Page):
             controls = [
                 encabezado_2,
                 espacio_tarjetas,
-
-                ft.Button(
-                    "Actualizar datos",
-                    on_click = simular_datos
-                ),
-
                 espacio_tanque_grafica,
                 crear_panel_temperatura(temperatura_agua),
                 comprobar_alertas(nivel),
