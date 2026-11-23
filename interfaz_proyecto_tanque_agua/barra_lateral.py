@@ -2,7 +2,7 @@ import flet as ft
 
 from colores import Colores
 
-def crear_items(icono, texto, activo = False):
+def crear_items(icono, texto, activo = False, on_click = None):
     if activo == True:
         color_fondo = Colores["Turquesa"]
     else:
@@ -12,6 +12,8 @@ def crear_items(icono, texto, activo = False):
         padding = 15,
         border_radius = 10,
         bgcolor = color_fondo,
+        on_click = on_click,
+        ink = True,
 
         content = ft.Row(
             controls = [
