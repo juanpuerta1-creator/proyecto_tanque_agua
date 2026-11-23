@@ -124,6 +124,7 @@ def main(page: ft.Page):
 
                         ft.Container(
                             expand = True,
+                            height = 400,
                             padding = 20,
                             bgcolor = Colores["Barra_lateral"],
                             border_radius = 15,
