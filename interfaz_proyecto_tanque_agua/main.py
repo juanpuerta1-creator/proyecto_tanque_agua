@@ -69,20 +69,23 @@ def main(page: ft.Page):
         )
         
         espacio_tanque_grafica = ft.Row(
-            controls=[
-                crear_tanque(nivel),
+            controls = [
+                ft.Container(
+                    crear_tanque(nivel),
+                    expand = 2
+                ),
 
                 ft.Container(
-                    content=crear_grafica(),
-                    expand=True
+                    content = crear_grafica(),
+                    expand = 3
                 )
             ],
-            spacing=15,
-            vertical_alignment=ft.CrossAxisAlignment.START
+            spacing = 15,
+            vertical_alignment = ft.CrossAxisAlignment.START
         )
 
         return ft.Column(
-            controls=[
+            controls = [
                 encabezado_2,
                 espacio_tarjetas,
                 espacio_tanque_grafica,
@@ -93,135 +96,132 @@ def main(page: ft.Page):
                 if ciclos >= ciclos_maximos
                 else ft.Container()
             ],
-            spacing=15,
-            scroll=ft.ScrollMode.AUTO
+            spacing = 15,
+            scroll = ft.ScrollMode.AUTO
         )
 
     # VISTA DE TANQUES
     def vista_tanques():
 
         return ft.Column(
-            controls=[
+            controls = [
                 ft.Text(
                     "Monitoreo de tanques",
-                    size=25,
-                    weight=ft.FontWeight.BOLD,
-                    color=Colores["Texto"]
+                    size = 25,
+                    weight = ft.FontWeight.BOLD,
+                    color = Colores["Texto"]
                 ),
 
                 ft.Text(
                     "Información detallada del tanque principal",
-                    size=14,
-                    color=Colores["Texto_Secundario"]
+                    size = 14,
+                    color = Colores["Texto_Secundario"]
                 ),
 
                 ft.Row(
-                    controls=[
+                    controls = [
                         crear_tanque(nivel),
 
                         ft.Container(
-                            expand=True,
-                            padding=20,
-                            bgcolor=Colores["Barra_lateral"],
-                            border_radius=15,
+                            expand = True,
+                            padding = 20,
+                            bgcolor = Colores["Barra_lateral"],
+                            border_radius = 15,
 
-                            content=ft.Column(
-                                controls=[
+                            content = ft.Column(
+                                controls = [
                                     ft.Text(
                                         "Información del tanque",
-                                        size=18,
-                                        weight=ft.FontWeight.BOLD,
-                                        color=Colores["Texto"]
+                                        size = 18,
+                                        weight = ft.FontWeight.BOLD,
+                                        color = Colores["Texto"]
                                     ),
 
                                     ft.Text(
                                         "Tanque principal",
-                                        size=14,
-                                        color=Colores["Texto_Secundario"]
+                                        size = 14,
+                                        color = Colores["Texto_Secundario"]
                                     ),
 
                                     ft.Divider(
-                                        color=Colores["Texto_Secundario"]
+                                        color = Colores["Texto_Secundario"]
                                     ),
 
                                     ft.Text(
                                         f"Nivel actual: {nivel}%",
-                                        color=Colores["Texto"],
-                                        size=15
+                                        color = Colores["Texto"],
+                                        size = 15
                                     ),
 
                                     ft.Text(
                                         "Capacidad: 20.000 litros",
-                                        color=Colores["Texto"],
-                                        size=15
+                                        color = Colores["Texto"],
+                                        size = 15
                                     ),
 
                                     ft.Text(
                                         f"Temperatura: {temperatura_agua} °C",
-                                        color=Colores["Texto"],
-                                        size=15
+                                        color = Colores["Texto"],
+                                        size = 15
                                     ),
 
                                     ft.Text(
                                         "Altura máxima: 4 metros",
-                                        color=Colores["Texto"],
-                                        size=15
+                                        color = Colores["Texto"],
+                                        size = 15
                                     )
-                                ],
-                                spacing=15
+                                ]
                             )
                         )
                     ],
                     vertical_alignment=ft.CrossAxisAlignment.START,
-                    spacing=15
+                    spacing = 15
                 ),
-
                 crear_panel_temperatura(temperatura_agua)
             ],
-            spacing=15,
-            scroll=ft.ScrollMode.AUTO
+            spacing = 15,
+            scroll = ft.ScrollMode.AUTO
         )
 
     # VISTA DE HISTORIAL
     def vista_historial():
 
         return ft.Column(
-            controls=[
+            controls = [
                 ft.Text(
                     "Historial de mediciones",
-                    size=25,
-                    weight=ft.FontWeight.BOLD,
-                    color=Colores["Texto"]
+                    size = 25,
+                    weight = ft.FontWeight.BOLD,
+                    color = Colores["Texto"]
                 ),
 
                 ft.Text(
                     "Evolución del nivel del agua en el tanque",
-                    size=14,
-                    color=Colores["Texto_Secundario"]
+                    size = 14,
+                    color = Colores["Texto_Secundario"]
                 ),
-
                 crear_grafica()
             ],
-            spacing=20,
-            scroll=ft.ScrollMode.AUTO
+            spacing = 20,
+            scroll = ft.ScrollMode.AUTO
         )
 
     # VISTA DE ALERTAS
     def vista_alertas():
 
         return ft.Column(
-            controls=[
+            controls = [
                 ft.Text(
                     "Alertas del sistema",
-                    size=25,
-                    weight=ft.FontWeight.BOLD,
-                    color=Colores["Texto"]
+                    size = 25,
+                    weight = ft.FontWeight.BOLD,
+                    color = Colores["Texto"]
                 ),
 
                 ft.Text(
                     "Estado y notificaciones del tanque",
-                    size=14,
-                    color=Colores["Texto_Secundario"]
+                    size = 14,
+                    color = Colores["Texto_Secundario"]
                 ),
 
                 comprobar_alertas(nivel),
@@ -230,8 +230,8 @@ def main(page: ft.Page):
                 if ciclos >= ciclos_maximos
                 else ft.Container()
             ],
-            spacing=15,
-            scroll=ft.ScrollMode.AUTO
+            spacing = 15,
+            scroll = ft.ScrollMode.AUTO
         )
 
     # FUNCION PARA CAMBIAR DE PANTALLA
@@ -287,10 +287,10 @@ def main(page: ft.Page):
 
     # BARRA LATERAL
     barra_lateral = ft.Container(
-        width=220,
-        bgcolor=Colores["Barra_lateral"],
-        padding=10,
-        border_radius=15,
+        width = 220,
+        bgcolor = Colores["Barra_lateral"],
+        padding = 10,
+        border_radius = 15,
 
         content = ft.Column(
             controls = [
@@ -298,9 +298,9 @@ def main(page: ft.Page):
 
                 ft.Text(
                     "MENU PRINCIPAL",
-                    color=Colores["Texto_Secundario"],
-                    size=12,
-                    weight=ft.FontWeight.BOLD
+                    color = Colores["Texto_Secundario"],
+                    size = 12,
+                    weight = ft.FontWeight.BOLD
                 ),
 
                 items_menu["Vista general"],
@@ -324,10 +324,10 @@ def main(page: ft.Page):
 
     # ESTRUCTURA PRINCIPAL
     estructura_principal = ft.Row(
-        expand=True,
-        spacing=5,
+        expand = True,
+        spacing = 5,
 
-        controls=[
+        controls = [
             barra_lateral,
             contenido_principal
         ]
