@@ -36,6 +36,8 @@ def main(page: ft.Page):
         padding=10
     )
 
+    items_menu = {}
+
     # VISTA GENERAL
     def vista_general():
         volumen = capacidad_tanque * nivel / 100
@@ -61,18 +63,11 @@ def main(page: ft.Page):
                     "ACTIVA",
                     ft.Icons.WIFI,
                     Colores["Turquesa"]
-                ),
-
-                crear_tarjeta(
-                    "Temperatura",
-                    f"{temperatura_agua} °C",
-                    ft.Icons.THERMOSTAT,
-                    Colores["Turquesa"]
                 )
             ],
             spacing=10
         )
-
+        
         espacio_tanque_grafica = ft.Row(
             controls=[
                 crear_tanque(nivel),
@@ -241,7 +236,14 @@ def main(page: ft.Page):
 
     # FUNCION PARA CAMBIAR DE PANTALLA
     def mostrar_vista(nombre):
+        for nombre_item, item in items_menu.items():
+            # CAMBIAR EL COLOR DE LA SECCION
+            if nombre_item == nombre:
+                item.bgcolor = Colores["Turquesa"]
+            else:
+                item.bgcolor = None
 
+        # CAMBIAR ENTRE SECCIONES
         if nombre == "Vista general":
             contenido_principal.content = vista_general()
 
@@ -256,6 +258,33 @@ def main(page: ft.Page):
 
         page.update()
 
+    items_menu = {
+        "Vista general": crear_items(
+            ft.Icons.DASHBOARD,
+            "Vista general",
+            True,
+            on_click = lambda e: mostrar_vista("Vista general")
+        ),
+
+        "Tanques": crear_items(
+            ft.Icons.STORAGE,
+            "Tanques",
+            on_click = lambda e: mostrar_vista("Tanques")
+        ),
+
+        "Historial": crear_items(
+            ft.Icons.SHOW_CHART,
+            "Historial",
+            on_click = lambda e: mostrar_vista("Historial")
+        ),
+
+        "Alertas": crear_items(
+            ft.Icons.NOTIFICATIONS_NONE,
+            "Alertas",
+            on_click = lambda e: mostrar_vista("Alertas")
+        )
+    }
+
     # BARRA LATERAL
     barra_lateral = ft.Container(
         width=220,
@@ -263,8 +292,8 @@ def main(page: ft.Page):
         padding=10,
         border_radius=15,
 
-        content=ft.Column(
-            controls=[
+        content = ft.Column(
+            controls = [
                 encabezado,
 
                 ft.Text(
@@ -274,32 +303,12 @@ def main(page: ft.Page):
                     weight=ft.FontWeight.BOLD
                 ),
 
-                crear_items(
-                    ft.Icons.DASHBOARD,
-                    "Vista general",
-                    True,
-                    on_click=lambda e: mostrar_vista("Vista general")
-                ),
+                items_menu["Vista general"],
+                items_menu["Tanques"],
+                items_menu["Historial"],
+                items_menu["Alertas"],
 
-                crear_items(
-                    ft.Icons.STORAGE,
-                    "Tanques",
-                    on_click=lambda e: mostrar_vista("Tanques")
-                ),
-
-                crear_items(
-                    ft.Icons.SHOW_CHART,
-                    "Historial",
-                    on_click=lambda e: mostrar_vista("Historial")
-                ),
-
-                crear_items(
-                    ft.Icons.NOTIFICATIONS_NONE,
-                    "Alertas",
-                    on_click=lambda e: mostrar_vista("Alertas")
-                ),
-
-                ft.Container(expand=True),
+                ft.Container(expand = True),
 
                 cuenta_usuario(
                     "Juan Puerta",
