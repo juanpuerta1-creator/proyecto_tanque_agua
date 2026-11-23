@@ -118,7 +118,7 @@ def crear_grafica():
     )
 
     return ft.Container(
-        height = 300,
+        height = 400,
         padding = 15,
         bgcolor = Colores["Barra_lateral"],
         border_radius = 15,
