@@ -20,19 +20,38 @@ def crear_encabezado():
     return encabezado
 
 def encabezado_principal():
-    encabezado_2 = ft.Column(
-        controls = [
-            ft.Text(
-                "Monitoreo del tanque",
-                size = 25,
-                color =  Colores["Texto"],
-            ),
-            ft.Text(
-                "Tanque principal",
-                size = 15,
-                color = Colores["Texto_Secundario"]
-            )
-        ],
-        spacing = 5
-    )
-    return encabezado_2
+        encabezado_2 = ft.Row(
+            controls=[
+                ft.Column(
+                    controls = [
+                        ft.Text(
+                            "Monitoreo del tanque",
+                            size = 25,
+                            color = Colores["Texto"]
+                        ),
+
+                        ft.Text(
+                            "Tanque principal",
+                            size = 15,
+                            color = Colores["Texto_Secundario"]
+                        )
+                    ],
+                    spacing = 5,
+                    alignment = ft.MainAxisAlignment.CENTER
+                ),
+
+                ft.Container(
+                    expand = True
+                ),
+
+                ft.Image(
+                    src = "assets/IconoBanner.png",
+                    width = 100,
+                    height = 100,
+                    fit = ft.BoxFit.CONTAIN
+                )
+            ],
+            alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
+            vertical_alignment = ft.CrossAxisAlignment.CENTER
+        )
+        return encabezado_2
