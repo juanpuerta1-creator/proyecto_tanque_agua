@@ -313,8 +313,7 @@ def main(page: ft.Page):
 
                 cuenta_usuario(
                     "Juan Puerta",
-                    "Administrador Principal",
-                    "JP"
+                    "Administrador Principal"
                 )
             ]
         )
