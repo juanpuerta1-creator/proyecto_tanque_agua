@@ -14,6 +14,7 @@ nivel = 56
 ciclos = 100
 ciclos_maximos = 100
 temperatura_agua = 24.0
+capacidad_tanque = 20000
 
 
 def main(page: ft.Page):
@@ -37,6 +38,7 @@ def main(page: ft.Page):
 
     # VISTA GENERAL
     def vista_general():
+        volumen = capacidad_tanque * nivel / 100
 
         espacio_tarjetas = ft.Row(
             controls=[
@@ -49,7 +51,7 @@ def main(page: ft.Page):
 
                 crear_tarjeta(
                     "Volumen del tanque",
-                    "14.000 L",
+                    f"{volumen:.0f} L",
                     ft.Icons.WATER,
                     Colores["Turquesa"]
                 ),
